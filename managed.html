@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifying Connection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      @font-face {
+        font-family: 'LucideIcons';
+        /* Using unpkg for Lucide font */
+        src: url(https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf) format('truetype');
+      }
+      .lucide {
+        font-family: 'LucideIcons';
+        font-size: 1.5rem; /* Adjust icon size as needed */
+        line-height: 1;
+      }
+      /* Custom styles */
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      /* Add a subtle gradient or pattern */
+      .bg-gradient-custom {
+        background-color: #1a202c; /* Dark base */
+        background-image: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #1a202c 100%);
+      }
+      /* Style for the main Cloudflare content box */
+      .cf-content-box {
+        /* This class is just for potential custom styling if needed */
+        /* The actual content and styling will come from the Cloudflare token */
+      }
+      /* Style for the Ray ID/IP info box */
+      .info-box {
+        border: 1px solid #4a5568; /* Gray border */
+        background-color: rgba(45, 55, 72, 0.5); /* Semi-transparent dark background */
+        border-radius: 0.5rem; /* Rounded corners */
+        padding: 1rem;
+        margin-top: 1.5rem;
+        color: #a0aec0; /* Lighter gray text */
+        font-size: 0.875rem; /* Smaller text */
+      }
+    </style>
+</head>
+<body class="bg-gradient-custom text-gray-200 min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="w-full max-w-2xl bg-gray-800 shadow-xl rounded-lg p-8 text-center">
+
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-white">Verifying your connection...</h1>
+            <p class="text-lg text-gray-400 mt-2">Please wait while we ensure your connection is secure.</p>
+            </header>
+
+        <main class="cf-content-box">
+            ::CAPTCHA_BOX::
+        </main>
+
+        <footer class="mt-8 text-sm text-gray-400">
+            <p class="mb-4">This check is automatic and usually takes just a few seconds.</p>
+            <div class="info-box text-left">
+                <p><span class="font-semibold text-gray-300">Ray ID:</span> ::RAY_ID::</p>
+                <p><span class="font-semibold text-gray-300">Your IP Address:</span> ::CLIENT_IP::</p>
+                </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
