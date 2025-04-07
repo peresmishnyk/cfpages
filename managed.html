@@ -4,66 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verifying Connection</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-      @font-face {
-        font-family: 'LucideIcons';
-        /* Using unpkg for Lucide font */
-        src: url(https://unpkg.com/lucide-static@latest/font/Lucide.ttf) format('truetype');
+      /* Basic reset and body styling */
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        /* Using a standard system font stack */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       }
-      .lucide {
-        font-family: 'LucideIcons';
-        font-size: 1.5rem; /* Adjust icon size as needed */
-        line-height: 1;
-      }
-      /* Custom styles */
+
       body {
-        font-family: 'Inter', sans-serif;
-      }
-      /* Add a subtle gradient or pattern */
-      .bg-gradient-custom {
-        background-color: #1a202c; /* Dark base */
+        /* Dark gradient background */
+        background-color: #1a202c; /* Fallback */
         background-image: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #1a202c 100%);
+        color: #e2e8f0; /* Default light text color */
+        /* Flexbox for centering content */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh; /* Ensure it takes full viewport height */
+        padding: 1rem; /* Padding around the content */
+        box-sizing: border-box; /* Include padding in element's total width and height */
       }
-      /* Style for the main Cloudflare content box */
+
+      /* Main content container */
+      .container {
+        background-color: #2d3748; /* Dark gray background */
+        padding: 2rem; /* Spacing inside the container */
+        border-radius: 0.5rem; /* Rounded corners */
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+        max-width: 42rem; /* Limit maximum width (equivalent to max-w-2xl) */
+        width: 100%; /* Make it responsive */
+        text-align: center; /* Center text inside */
+        box-sizing: border-box;
+      }
+
+      /* Header section styling */
+      .header {
+        margin-bottom: 2rem; /* Space below header */
+      }
+
+      .header h1 {
+        font-size: 1.875rem; /* Large title (equivalent to text-3xl) */
+        font-weight: 700; /* Bold */
+        color: #ffffff; /* White text */
+        margin-top: 0;
+        margin-bottom: 0.5rem; /* Space below h1 */
+      }
+
+      .header p {
+        font-size: 1.125rem; /* Slightly larger text (equivalent to text-lg) */
+        color: #a0aec0; /* Lighter gray text */
+        margin-top: 0.5rem; /* Space above paragraph */
+        margin-bottom: 0;
+      }
+
+      /* Main content box styling (where Cloudflare token goes) */
       .cf-content-box {
-        /* This class is just for potential custom styling if needed */
-        /* The actual content and styling will come from the Cloudflare token */
+        /* Add any specific styling for the wrapper if needed */
+        /* The core content comes from the Cloudflare token */
+        margin-top: 1rem;
+        margin-bottom: 1rem;
       }
-      /* Style for the Ray ID/IP info box */
+
+      /* Footer section styling */
+      .footer {
+        margin-top: 2rem; /* Space above footer */
+        font-size: 0.875rem; /* Smaller text (equivalent to text-sm) */
+        color: #a0aec0; /* Lighter gray text */
+      }
+
+      .footer .support-text {
+        margin-bottom: 1rem; /* Space below support text */
+      }
+
+      /* Diagnostic info box styling */
       .info-box {
         border: 1px solid #4a5568; /* Gray border */
         background-color: rgba(45, 55, 72, 0.5); /* Semi-transparent dark background */
         border-radius: 0.5rem; /* Rounded corners */
-        padding: 1rem;
-        margin-top: 1.5rem;
+        padding: 1rem; /* Spacing inside the box */
+        margin-top: 1.5rem; /* Space above the box */
         color: #a0aec0; /* Lighter gray text */
         font-size: 0.875rem; /* Smaller text */
+        text-align: left; /* Align text to the left */
       }
+
+      .info-box p {
+        margin: 0.25rem 0; /* Small spacing between lines */
+      }
+
+      .info-box .label {
+        font-weight: 600; /* Semi-bold label (equivalent to font-semibold) */
+        color: #cbd5e0; /* Slightly lighter gray */
+      }
+
+      /* Copyright text styling */
+      .copyright {
+        margin-top: 1.5rem; /* Space above copyright */
+        font-size: 0.75rem; /* Very small text (equivalent to text-xs) */
+        color: #718096; /* Darker gray text */
+      }
+
     </style>
 </head>
-<body class="bg-gradient-custom text-gray-200 min-h-screen flex flex-col items-center justify-center p-4">
+<body>
+    <div class="container">
 
-    <div class="w-full max-w-2xl bg-gray-800 shadow-xl rounded-lg p-8 text-center">
-
-        <header class="mb-8">
-            <h1 class="text-3xl font-bold text-white">Verifying your connection...</h1>
-            <p class="text-lg text-gray-400 mt-2">Please wait while we ensure your connection is secure.</p>
-            </header>
+        <header class="header">
+            <h1>Verifying your connection...</h1>
+            <p>Please wait while we ensure your connection is secure.</p>
+        </header>
 
         <main class="cf-content-box">
             ::CAPTCHA_BOX::
         </main>
 
-        <footer class="mt-8 text-sm text-gray-400">
-            <p class="mb-4">This check is automatic and usually takes just a few seconds.</p>
-            <div class="info-box text-left">
-                <p><span class="font-semibold text-gray-300">Ray ID:</span> ::RAY_ID::</p>
-                <p><span class="font-semibold text-gray-300">Your IP Address:</span> ::CLIENT_IP::</p>
-                </div>
+        <footer class="footer">
+            <p class="support-text">This check is automatic and usually takes just a few seconds.</p>
+            <div class="info-box">
+                <p><span class="label">Ray ID:</span> ::RAY_ID::</p>
+                <p><span class="label">Your IP Address:</span> ::CLIENT_IP::</p>
+            </div>
+            <p class="copyright">&copy; All rights reserved.</p>
         </footer>
 
     </div>
